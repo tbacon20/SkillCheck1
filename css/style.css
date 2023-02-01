@@ -1,0 +1,27 @@
+form {
+    overflow: hidden;
+    width: 400px;
+
+    margin: 15px !important;
+    padding: 15px;
+    border-radius: 10px;
+    border-color: green;
+}
+
+.center-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.full-width {
+    width: 100%;
+    text-align: center;
+}
+
+.links {
+    margin-left: 10px;
+    margin-right: 10px;
+}
