@@ -1,7 +1,7 @@
 function submitToAPI(e) {
     e.preventDefault();
 
-    //var URL = "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact";
+    //var URL = "API gateway link";
 
          var Namere = /[A-Za-z]{1}[A-Za-z]/;
          if (!Namere.test($("#name-input").val())) {
@@ -46,7 +46,7 @@ function submitToAPI(e) {
      /*
     $.ajax({
       type: "POST",
-      url : "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact",
+      url : "API gateway link",
       dataType: "json",
       crossDomain: "true",
       contentType: "application/json; charset=utf-8",
