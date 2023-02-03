@@ -1,7 +1,8 @@
 function submitToAPI(e) {
     e.preventDefault();
 
-    //var URL = "API gateway link";
+    // Insert your public API Gateway Endpoint url below
+    var URL = GetAPIendpoint();
 
          var Namere = /[A-Za-z]{1}[A-Za-z]/;
          if (!Namere.test($("#name-input").val())) {
@@ -28,12 +29,28 @@ function submitToAPI(e) {
     var phone = $("#phone-input").val();
     var email = $("#email-input").val();
     var desc = $("#description-input").val();
+    var id = "id" + (Date.now()).toString();
+
+    var data = {
+      "operation": "create",
+      "payload": {
+        "Item": {
+          "id": id,
+          "name": name,
+          "phone": phone,
+          "email": email,
+          "message": desc
+        }
+      }
+    }
+    /*
     var data = {
        name : name,
        phone : phone,
        email : email,
        desc : desc
      };
+     */
 
      /*
      alert("button works with" +
@@ -43,10 +60,43 @@ function submitToAPI(e) {
             "\desc: " + desc);
      */
 
-     /*
+      fetch(URL, {
+        method: 'POST',
+        mode: "no-cors",
+        //crossDomain: "true",
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(data => {
+        console.log('Payload:', data)
+        // rest of the code
+      })
+      // Include response if you set it up in API Gateway
+      /*.then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })*/
+      .then(data => {
+        // clear form and show a success message
+        alert('Successful');
+        document.getElementById('contact-form').reset();
+        location.reload();
+      })
+      .catch(error => {
+        // show an error message
+        console.log(error);
+        alert('Unsuccessful');
+      });
+            
+
+    /* Request can also be sent as $.ajax()
     $.ajax({
       type: "POST",
-      url : "API gateway link",
+      url : URL,
       dataType: "json",
       crossDomain: "true",
       contentType: "application/json; charset=utf-8",

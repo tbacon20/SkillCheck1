@@ -47,15 +47,48 @@
             </form>
         </div>
 
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <h3>Step 1: Call cloud API <i class="fa fa-cloud"></i></h3>
+              <h4>API Gateway request</h4>
+              <p>The user sends a POST request to API 
+                Gateway through a jquery form. This API
+                request will trigger a lambda function.</p>
+            </div>
+            <div class="col-sm">
+              <h3>Step 2: Parse Request <i class="fa fa-code"></i></h3>
+              <h4>AWS Lambda function</h4>
+              <p>When the lambda function is triggered,
+                it will take the HTTP request and send a 
+                new record to a DynamoDB table with the JSON
+                payload information from the form.
+              </p>
+            </div>
+            <div class="col-sm">
+              <h3>Step 3: Store message <i class="fa fa-solid fa-database"></i></h3>
+              <h4>Amazon DynamoDB Table</h4>
+              <p>All items submitted to the form will be 
+                stored in a table where they can be viewed 
+                individually or seen as a table with email,
+                 phone number, name, and the email message.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <footer class="text-center text-lg-start bg-white text-muted">
             <section class="d-flex justify-content-center p-4 border-bottom">
                 <a href="https://github.com/tbacon20/SkillCheck1" class="me-4 link-secondary links">
                   <i class="fa fa-github fa-2x"></i>
                 </a>
                 <a class="btn btn-primary links" target="_blank" href="https://aws.amazon.com/blogs/architecture/create-dynamic-contact-forms-for-s3-static-websites-using-aws-lambda-amazon-api-gateway-and-amazon-ses/" role="button">Try this yourself!</a>
+                <a class="btn btn-primary links" target="_blank" href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway-tutorial.html" role="button">AWS Tutorial!</a>
+                
             </section>
         </footer>
 
+        <script src="../lib/jquery/jquery-3.6.3.min.js"></script>
         <script src="../js/mailfwd.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
